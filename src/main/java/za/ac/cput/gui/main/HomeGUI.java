@@ -1,6 +1,7 @@
 package za.ac.cput.gui.main;
 
 import za.ac.cput.gui.address.ItemMenuGui;
+import za.ac.cput.gui.bank.BankItemMenuGui;
 
 import javax.swing.*;
 import java.awt.*;
@@ -110,9 +111,29 @@ public class HomeGUI implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getActionCommand().equals("1. Bank")){
+            BankItemMenuGui bankItemMenuGui = new BankItemMenuGui();
+            bankItemMenuGui.setGUI();
+        }
+        if(e.getActionCommand().equals("2. Account")){
+            BankItemMenuGui bankItemMenuGui = new BankItemMenuGui();
+            bankItemMenuGui.setGUI();
+        }
+        if(e.getActionCommand().equals("3. Customer")){
+            BankItemMenuGui bankItemMenuGui = new BankItemMenuGui();
+            bankItemMenuGui.setGUI();
+        }
+        if(e.getActionCommand().equals("4. Contact")){
+            BankItemMenuGui bankItemMenuGui = new BankItemMenuGui();
+            bankItemMenuGui.setGUI();
+        }
         if(e.getActionCommand().equals("5. Address")){
-            ItemMenuGui itemMenuGui = new ItemMenuGui();
-            itemMenuGui.setGUI();
+                ItemMenuGui itemMenuGui = new ItemMenuGui();
+                itemMenuGui.setGUI();
+        }
+        if(e.getActionCommand().equals("6. Statement")){
+                ItemMenuGui itemMenuGui = new ItemMenuGui();
+                itemMenuGui.setGUI();
         }
     }
 }

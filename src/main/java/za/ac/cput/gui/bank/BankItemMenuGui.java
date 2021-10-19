@@ -1,26 +1,29 @@
 package za.ac.cput.gui.bank;
 
+import za.ac.cput.gui.address.CreateAddress;
+import za.ac.cput.gui.address.DeleteAddress;
+import za.ac.cput.gui.address.UpdateAddress;
+import za.ac.cput.gui.address.ViewAddress;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CreateBank implements ActionListener {
-
-private JFrame MenuFrame;
+public class BankItemMenuGui implements ActionListener {
+    private JFrame MenuFrame;
     private JPanel panelNorth, panelSouth, panelEast, panelWest, panelCenter;
     private JLabel lblHeading;
-    private JButton btnCreateBank,  btnViewBank, btnUpdateBank, btnDeleteBank, btnExit;
-    private JTextField txtStreet;
+    private JButton btnCreateAddress,  btnViewAddress, btnUpdateAddress, btnDeleteAddress, btnExit;
     private JLabel Filler1, Filler2, Filler3, Filler4, Filler5;
     private Font headingFont;
     Color btnColor = Color.WHITE;
 
-    public CreateBank(){
+    public BankItemMenuGui(){
         //Font
         headingFont = new Font("Times new roman", Font.BOLD, 30);
 
-        MenuFrame = new JFrame("CREATE BANK");
+        MenuFrame = new JFrame("ADD ADDRESS ");
         panelNorth = new JPanel();
         panelSouth = new JPanel();
         panelEast = new JPanel();
@@ -48,14 +51,14 @@ private JFrame MenuFrame;
         Filler5.setForeground(Color.LIGHT_GRAY);
 
         //Buttons:
-        btnCreateBank = new JButton("Please add your Bank Account");
-        btnCreateBank.setBackground(btnColor);
-        btnViewBank = new JButton("View your Bank Account");
-        btnViewBank.setBackground(btnColor);
-        btnUpdateBank = new JButton("Update your Bank Account");
-        btnUpdateBank.setBackground(btnColor);
-        btnCreateBank = new JButton("Delete your Bank Account");
-        btnCreateBank.setBackground(btnColor);
+        btnCreateAddress = new JButton("CREATE  ADDRESS");
+        btnCreateAddress.setBackground(btnColor);
+        btnViewAddress = new JButton("VIEW  ADDRESS");
+        btnViewAddress.setBackground(btnColor);
+        btnUpdateAddress = new JButton("UPDATE  ADDRESS");
+        btnUpdateAddress.setBackground(btnColor);
+        btnDeleteAddress = new JButton("DELETE  ADDRESS");
+        btnDeleteAddress.setBackground(btnColor);
 
         btnExit = new JButton("Exit");
         btnExit.setBackground(btnColor);
@@ -78,10 +81,10 @@ private JFrame MenuFrame;
 
         //Panel Center:
         panelCenter.add(Filler3);
-        panelCenter.add(btnCreateBank);
-        panelCenter.add(btnViewBank);
-        panelCenter.add(btnUpdateBank);
-        panelCenter.add(btnDeleteBank);
+        panelCenter.add(btnCreateAddress);
+        panelCenter.add(btnViewAddress);
+        panelCenter.add(btnUpdateAddress);
+        panelCenter.add(btnDeleteAddress);
         panelCenter.add(Filler4);
 
         //Panel East
@@ -101,10 +104,10 @@ private JFrame MenuFrame;
         MenuFrame.add(panelWest, BorderLayout.WEST);
 
         //Telling compiler to listen for actions from the buttons:
-        btnCreateBank.addActionListener(this);
-        btnViewBank.addActionListener(this);
-        btnUpdateBank.addActionListener(this);
-        btnDeleteBank.addActionListener(this);
+        btnCreateAddress.addActionListener(this);
+        btnViewAddress.addActionListener(this);
+        btnUpdateAddress.addActionListener(this);
+        btnDeleteAddress.addActionListener(this);
         btnExit.addActionListener(this);
 
         //Set GUI:
@@ -113,12 +116,30 @@ private JFrame MenuFrame;
         MenuFrame.setSize(350, 350);
         MenuFrame.setLocationRelativeTo(null);
         MenuFrame.setVisible(true);
+
     }
 
-    @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getActionCommand().equals("CREATE  ADDRESS")){
+            CreateAddress createAddress = new CreateAddress();
+               createAddress.setGUI();
+        }
+        if(e.getActionCommand().equals("VIEW  ADDRESS")){
+         ViewAddress viewAddress = new ViewAddress();
+            viewAddress.setGUI();
+        }
+        if(e.getActionCommand().equals("UPDATE  ADDRESS")){
+            UpdateAddress updateAddress = new UpdateAddress();
+            updateAddress.setGUI();
+        }
+        if(e.getActionCommand().equals("DELETE  ADDRESS")){
+            DeleteAddress deleteAddress = new DeleteAddress();
+            deleteAddress.setGUI();
+        }
+
         if(e.getActionCommand().equals("Exit")){
             MenuFrame.dispose();
         }
     }
+
 }
