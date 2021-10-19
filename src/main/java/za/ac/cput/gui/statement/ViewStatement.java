@@ -5,21 +5,20 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CreateStatement implements ActionListener{
-
+public class ViewStatement implements ActionListener {
     private JFrame MenuFrame;
     private JPanel panelNorth, panelSouth, panelEast, panelWest, panelCenter;
     private JLabel lblHeading,lblBalance, lblFirstName, lblLastName;
-    private JButton btnCreate;
+    private JButton btnCreateStatement,  btnViewStatement, btnUpdateStatement, btnDeleteStatement, btnExit;
     private JLabel Filler1, Filler2, Filler3, Filler4, Filler5;
     private Font headingFont;
     private JTextField txtBalance,txtFirstName,txtLastName;
     Color btnColor = Color.WHITE;
 
-    public CreateStatement(){
+    public ViewStatement() {
         headingFont = new Font("Times new roman", Font.BOLD, 30);
 
-        MenuFrame = new JFrame("CREATE YOUR STATEMENT");
+        MenuFrame = new JFrame("VIEW YOUR STATEMENT");
         panelNorth = new JPanel();
         panelSouth = new JPanel();
         panelEast = new JPanel();
@@ -33,22 +32,8 @@ public class CreateStatement implements ActionListener{
         panelWest.setBackground(Color.LIGHT_GRAY);
         panelCenter.setBackground(Color.LIGHT_GRAY);
 
+        lblHeading = new JLabel("VIEW STATEMENT", JLabel.CENTER);
 
-
-
-        lblHeading = new JLabel("PLEASE FILL OUT",JLabel.CENTER);
-        lblBalance = new JLabel("How much money you have", JLabel.CENTER);
-        lblFirstName = new JLabel("First Name? ", JLabel.CENTER);
-        lblLastName = new JLabel("Last Name", JLabel.CENTER);
-
-
-        txtBalance = new JTextField(" ", JTextField.CENTER);
-        txtFirstName = new JTextField(" ", JTextField.CENTER);
-        txtLastName = new JTextField(" ", JTextField.CENTER);
-
-
-
-        //Fillers:
         Filler1 = new JLabel("=====");
         Filler1.setForeground(Color.LIGHT_GRAY);
         Filler2 = new JLabel("=====");
@@ -60,8 +45,16 @@ public class CreateStatement implements ActionListener{
         Filler5 = new JLabel("================================");
         Filler5.setForeground(Color.LIGHT_GRAY);
 
-        btnCreate = new JButton("Create");
-        btnCreate.setBackground(btnColor);
+        btnCreateStatement = new JButton("Please create a bank statement");
+        btnCreateStatement.setBackground(btnColor);
+        btnViewStatement = new JButton("View your bank statement");
+        btnViewStatement.setBackground(btnColor);
+        btnUpdateStatement = new JButton("Update your bank statement");
+        btnUpdateStatement.setBackground(btnColor);
+        btnDeleteStatement = new JButton("Delete your bank statement");
+        btnDeleteStatement.setBackground(btnColor);
+        btnExit = new JButton("Exit");
+        btnExit.setBackground(btnColor);
     }
 
     public void setGUI() {
@@ -69,29 +62,28 @@ public class CreateStatement implements ActionListener{
         panelEast.setLayout(new GridLayout(5, 1));
         panelSouth.setLayout(new GridLayout(1, 3));
         panelWest.setLayout(new GridLayout(5, 1));
-        panelCenter.setLayout(new GridLayout(10, 1));
+        panelCenter.setLayout(new GridLayout(7, 1));
+
 
         panelNorth.add(Filler5);
         panelNorth.add(lblHeading);
 
+
         panelWest.add(Filler1);
 
+
         panelCenter.add(Filler3);
-
-        panelCenter.add(lblBalance);
-        panelCenter.add(txtBalance);
-
-        panelCenter.add(lblFirstName);
-        panelCenter.add(txtFirstName);
-
-        panelCenter.add(lblLastName);
-        panelCenter.add(txtLastName);
+        panelCenter.add(btnCreateStatement);
+        panelCenter.add(btnViewStatement);
+        panelCenter.add(btnUpdateStatement);
+        panelCenter.add(btnDeleteStatement);
+        panelCenter.add(Filler4);
 
 
         panelEast.add(Filler2);
 
 
-        panelSouth.add(btnCreate);
+        panelSouth.add(btnExit);
 
 
         lblHeading.setFont(headingFont);
@@ -103,20 +95,26 @@ public class CreateStatement implements ActionListener{
         MenuFrame.add(panelCenter, BorderLayout.CENTER);
         MenuFrame.add(panelWest, BorderLayout.WEST);
 
-
-        btnCreate.addActionListener(this);
-
+        btnCreateStatement.addActionListener(this);
+        btnViewStatement.addActionListener(this);
+        btnUpdateStatement.addActionListener(this);
+        btnDeleteStatement.addActionListener(this);
+        btnExit.addActionListener(this);
 
         MenuFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         MenuFrame.pack();
-        MenuFrame.setSize(400, 400);
+        MenuFrame.setSize(350, 350);
         MenuFrame.setLocationRelativeTo(null);
         MenuFrame.setVisible(true);
+
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals("Create")){
 
+
+        if(e.getActionCommand().equals("Exit")){
+            MenuFrame.dispose();
         }
     }
 }
