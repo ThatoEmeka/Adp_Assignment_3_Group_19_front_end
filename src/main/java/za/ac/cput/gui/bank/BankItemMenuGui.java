@@ -1,9 +1,9 @@
 package za.ac.cput.gui.bank;
 
-import za.ac.cput.gui.address.CreateAddress;
-import za.ac.cput.gui.address.DeleteAddress;
-import za.ac.cput.gui.address.UpdateAddress;
-import za.ac.cput.gui.address.ViewAddress;
+import za.ac.cput.gui.bank.CreateBank;
+import za.ac.cput.gui.bank.DeleteBank;
+import za.ac.cput.gui.bank.UpdateBank;
+import za.ac.cput.gui.bank.ViewBank;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,7 +14,7 @@ public class BankItemMenuGui implements ActionListener {
     private JFrame MenuFrame;
     private JPanel panelNorth, panelSouth, panelEast, panelWest, panelCenter;
     private JLabel lblHeading;
-    private JButton btnCreateAddress,  btnViewAddress, btnUpdateAddress, btnDeleteAddress, btnExit;
+    private JButton btnCreateBank,  btnViewBank, btnUpdateBank, btnDeleteBank, btnExit;
     private JLabel Filler1, Filler2, Filler3, Filler4, Filler5;
     private Font headingFont;
     Color btnColor = Color.WHITE;
@@ -23,7 +23,7 @@ public class BankItemMenuGui implements ActionListener {
         //Font
         headingFont = new Font("Times new roman", Font.BOLD, 30);
 
-        MenuFrame = new JFrame("ADD ADDRESS ");
+        MenuFrame = new JFrame("ADD BANK ");
         panelNorth = new JPanel();
         panelSouth = new JPanel();
         panelEast = new JPanel();
@@ -36,7 +36,7 @@ public class BankItemMenuGui implements ActionListener {
         panelCenter.setBackground(Color.LIGHT_GRAY);
 
         //Heading
-        lblHeading = new JLabel("ADD ADDRESS",JLabel.CENTER);
+        lblHeading = new JLabel("ADD BANK",JLabel.CENTER);
 
         //Fillers:
         Filler1 = new JLabel("=====");
@@ -51,14 +51,14 @@ public class BankItemMenuGui implements ActionListener {
         Filler5.setForeground(Color.LIGHT_GRAY);
 
         //Buttons:
-        btnCreateAddress = new JButton("CREATE  ADDRESS");
-        btnCreateAddress.setBackground(btnColor);
-        btnViewAddress = new JButton("VIEW  ADDRESS");
-        btnViewAddress.setBackground(btnColor);
-        btnUpdateAddress = new JButton("UPDATE  ADDRESS");
-        btnUpdateAddress.setBackground(btnColor);
-        btnDeleteAddress = new JButton("DELETE  ADDRESS");
-        btnDeleteAddress.setBackground(btnColor);
+        btnCreateBank = new JButton("CREATE  BANK");
+        btnCreateBank.setBackground(btnColor);
+        btnViewBank = new JButton("VIEW  BANK");
+        btnViewBank.setBackground(btnColor);
+        btnUpdateBank = new JButton("UPDATE  BANK");
+        btnUpdateBank.setBackground(btnColor);
+        btnDeleteBank = new JButton("DELETE  BANK");
+        btnDeleteBank.setBackground(btnColor);
 
         btnExit = new JButton("Exit");
         btnExit.setBackground(btnColor);
@@ -81,10 +81,10 @@ public class BankItemMenuGui implements ActionListener {
 
         //Panel Center:
         panelCenter.add(Filler3);
-        panelCenter.add(btnCreateAddress);
-        panelCenter.add(btnViewAddress);
-        panelCenter.add(btnUpdateAddress);
-        panelCenter.add(btnDeleteAddress);
+        panelCenter.add(btnCreateBank);
+        panelCenter.add(btnViewBank);
+        panelCenter.add(btnUpdateBank);
+        panelCenter.add(btnDeleteBank);
         panelCenter.add(Filler4);
 
         //Panel East
@@ -104,10 +104,10 @@ public class BankItemMenuGui implements ActionListener {
         MenuFrame.add(panelWest, BorderLayout.WEST);
 
         //Telling compiler to listen for actions from the buttons:
-        btnCreateAddress.addActionListener(this);
-        btnViewAddress.addActionListener(this);
-        btnUpdateAddress.addActionListener(this);
-        btnDeleteAddress.addActionListener(this);
+        btnCreateBank.addActionListener(this);
+        btnViewBank.addActionListener(this);
+        btnUpdateBank.addActionListener(this);
+        btnDeleteBank.addActionListener(this);
         btnExit.addActionListener(this);
 
         //Set GUI:
@@ -120,21 +120,21 @@ public class BankItemMenuGui implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals("CREATE  ADDRESS")){
-            CreateAddress createAddress = new CreateAddress();
-               createAddress.setGUI();
+        if(e.getActionCommand().equals("CREATE  BANK")){
+            CreateBank createBank = new CreateBank();
+               createBank.setGUI();
         }
-        if(e.getActionCommand().equals("VIEW  ADDRESS")){
-         ViewAddress viewAddress = new ViewAddress();
-            viewAddress.setGUI();
+        if(e.getActionCommand().equals("VIEW  BANK")){
+         ViewBank viewBank = new ViewBank();
+            viewBank.setGUI();
         }
-        if(e.getActionCommand().equals("UPDATE  ADDRESS")){
-            UpdateAddress updateAddress = new UpdateAddress();
-            updateAddress.setGUI();
+        if(e.getActionCommand().equals("UPDATE  BANK")){
+            UpdateBank updateBank = new UpdateBank();
+            updateBank.setGUI();
         }
-        if(e.getActionCommand().equals("DELETE  ADDRESS")){
-            DeleteAddress deleteAddress = new DeleteAddress();
-            deleteAddress.setGUI();
+        if(e.getActionCommand().equals("DELETE  BANK")){
+            DeleteBank deleteBank = new DeleteBank();
+            deleteBank.setGUI();
         }
 
         if(e.getActionCommand().equals("Exit")){

@@ -5,22 +5,20 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CreateBank implements ActionListener {
-
-private JFrame MenuFrame;
+public class ViewBank implements ActionListener {
+    private JFrame MenuFrame;
     private JPanel panelNorth, panelSouth, panelEast, panelWest, panelCenter;
     private JLabel lblHeading;
     private JButton btnCreateBank,  btnViewBank, btnUpdateBank, btnDeleteBank, btnExit;
-    private JTextField txtStreet;
     private JLabel Filler1, Filler2, Filler3, Filler4, Filler5;
     private Font headingFont;
     Color btnColor = Color.WHITE;
 
-    public CreateBank(){
+    public ViewBank(){
         //Font
         headingFont = new Font("Times new roman", Font.BOLD, 30);
 
-        MenuFrame = new JFrame("CREATE BANK");
+        MenuFrame = new JFrame("VIEW BANK ");
         panelNorth = new JPanel();
         panelSouth = new JPanel();
         panelEast = new JPanel();
@@ -33,7 +31,7 @@ private JFrame MenuFrame;
         panelCenter.setBackground(Color.LIGHT_GRAY);
 
         //Heading
-        lblHeading = new JLabel("ADD BANK",JLabel.CENTER);
+        lblHeading = new JLabel("VIEW BANK",JLabel.CENTER);
 
         //Fillers:
         Filler1 = new JLabel("=====");
@@ -48,13 +46,13 @@ private JFrame MenuFrame;
         Filler5.setForeground(Color.LIGHT_GRAY);
 
         //Buttons:
-        btnCreateBank = new JButton("Please add your Bank Account");
+        btnCreateBank = new JButton("Please add your bank");
         btnCreateBank.setBackground(btnColor);
-        btnViewBank = new JButton("View your Bank Account");
+        btnViewBank = new JButton("View your bank");
         btnViewBank.setBackground(btnColor);
-        btnUpdateBank = new JButton("Update your Bank Account");
+        btnUpdateBank = new JButton("Update your bank");
         btnUpdateBank.setBackground(btnColor);
-        btnDeleteBank = new JButton("Delete your Bank Account");
+        btnDeleteBank = new JButton("Delete your bank");
         btnDeleteBank.setBackground(btnColor);
 
         btnExit = new JButton("Exit");
@@ -113,10 +111,14 @@ private JFrame MenuFrame;
         MenuFrame.setSize(350, 350);
         MenuFrame.setLocationRelativeTo(null);
         MenuFrame.setVisible(true);
+
     }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
+
         if(e.getActionCommand().equals("Exit")){
             MenuFrame.dispose();
         }
