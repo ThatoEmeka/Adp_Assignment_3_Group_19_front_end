@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ItemMenuGui implements ActionListener {
+public class ViewAddress implements ActionListener {
     private JFrame MenuFrame;
     private JPanel panelNorth, panelSouth, panelEast, panelWest, panelCenter;
     private JLabel lblHeading;
@@ -14,11 +14,11 @@ public class ItemMenuGui implements ActionListener {
     private Font headingFont;
     Color btnColor = Color.WHITE;
 
-    public ItemMenuGui(){
+    public ViewAddress(){
         //Font
         headingFont = new Font("Times new roman", Font.BOLD, 30);
 
-        MenuFrame = new JFrame("ADD ADDRESS ");
+        MenuFrame = new JFrame("VIEW ADDRESS ");
         panelNorth = new JPanel();
         panelSouth = new JPanel();
         panelEast = new JPanel();
@@ -31,7 +31,7 @@ public class ItemMenuGui implements ActionListener {
         panelCenter.setBackground(Color.LIGHT_GRAY);
 
         //Heading
-        lblHeading = new JLabel("ADD ADDRESS",JLabel.CENTER);
+        lblHeading = new JLabel("VIEW ADDRESS",JLabel.CENTER);
 
         //Fillers:
         Filler1 = new JLabel("=====");
@@ -46,13 +46,13 @@ public class ItemMenuGui implements ActionListener {
         Filler5.setForeground(Color.LIGHT_GRAY);
 
         //Buttons:
-        btnCreateAddress = new JButton("CREATE  ADDRESS");
+        btnCreateAddress = new JButton("Please add your address");
         btnCreateAddress.setBackground(btnColor);
-        btnViewAddress = new JButton("VIEW  ADDRESS");
+        btnViewAddress = new JButton("View your address");
         btnViewAddress.setBackground(btnColor);
-        btnUpdateAddress = new JButton("UPDATE  ADDRESS");
+        btnUpdateAddress = new JButton("Update your address");
         btnUpdateAddress.setBackground(btnColor);
-        btnDeleteAddress = new JButton("DELETE  ADDRESS");
+        btnDeleteAddress = new JButton("Delete your address");
         btnDeleteAddress.setBackground(btnColor);
 
         btnExit = new JButton("Exit");
@@ -114,27 +114,13 @@ public class ItemMenuGui implements ActionListener {
 
     }
 
+
+    @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals("CREATE  ADDRESS")){
-            CreateAddress createAddress = new CreateAddress();
-               createAddress.setGUI();
-        }
-        if(e.getActionCommand().equals("VIEW  ADDRESS")){
-         ViewAddress viewAddress = new ViewAddress();
-            viewAddress.setGUI();
-        }
-        if(e.getActionCommand().equals("UPDATE  ADDRESS")){
-            UpdateAddress updateAddress = new UpdateAddress();
-            updateAddress.setGUI();
-        }
-        if(e.getActionCommand().equals("DELETE  ADDRESS")){
-            DeleteAddress deleteAddress = new DeleteAddress();
-            deleteAddress.setGUI();
-        }
+
 
         if(e.getActionCommand().equals("Exit")){
             MenuFrame.dispose();
         }
     }
-
 }
