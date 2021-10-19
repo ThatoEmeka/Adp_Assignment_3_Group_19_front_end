@@ -1,26 +1,29 @@
 package za.ac.cput.gui.bank;
 
+import za.ac.cput.gui.bank.CreateBank;
+import za.ac.cput.gui.bank.DeleteBank;
+import za.ac.cput.gui.bank.UpdateBank;
+import za.ac.cput.gui.bank.ViewBank;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CreateBank implements ActionListener {
-
-private JFrame MenuFrame;
+public class BankItemMenuGui implements ActionListener {
+    private JFrame MenuFrame;
     private JPanel panelNorth, panelSouth, panelEast, panelWest, panelCenter;
     private JLabel lblHeading;
     private JButton btnCreateBank,  btnViewBank, btnUpdateBank, btnDeleteBank, btnExit;
-    private JTextField txtStreet;
     private JLabel Filler1, Filler2, Filler3, Filler4, Filler5;
     private Font headingFont;
     Color btnColor = Color.WHITE;
 
-    public CreateBank(){
+    public BankItemMenuGui(){
         //Font
         headingFont = new Font("Times new roman", Font.BOLD, 30);
 
-        MenuFrame = new JFrame("CREATE BANK");
+        MenuFrame = new JFrame("ADD BANK ");
         panelNorth = new JPanel();
         panelSouth = new JPanel();
         panelEast = new JPanel();
@@ -48,13 +51,13 @@ private JFrame MenuFrame;
         Filler5.setForeground(Color.LIGHT_GRAY);
 
         //Buttons:
-        btnCreateBank = new JButton("Please add your Bank Account");
+        btnCreateBank = new JButton("CREATE  BANK");
         btnCreateBank.setBackground(btnColor);
-        btnViewBank = new JButton("View your Bank Account");
+        btnViewBank = new JButton("VIEW  BANK");
         btnViewBank.setBackground(btnColor);
-        btnUpdateBank = new JButton("Update your Bank Account");
+        btnUpdateBank = new JButton("UPDATE  BANK");
         btnUpdateBank.setBackground(btnColor);
-        btnDeleteBank = new JButton("Delete your Bank Account");
+        btnDeleteBank = new JButton("DELETE  BANK");
         btnDeleteBank.setBackground(btnColor);
 
         btnExit = new JButton("Exit");
@@ -113,12 +116,30 @@ private JFrame MenuFrame;
         MenuFrame.setSize(350, 350);
         MenuFrame.setLocationRelativeTo(null);
         MenuFrame.setVisible(true);
+
     }
 
-    @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getActionCommand().equals("CREATE  BANK")){
+            CreateBank createBank = new CreateBank();
+               createBank.setGUI();
+        }
+        if(e.getActionCommand().equals("VIEW  BANK")){
+         ViewBank viewBank = new ViewBank();
+            viewBank.setGUI();
+        }
+        if(e.getActionCommand().equals("UPDATE  BANK")){
+            UpdateBank updateBank = new UpdateBank();
+            updateBank.setGUI();
+        }
+        if(e.getActionCommand().equals("DELETE  BANK")){
+            DeleteBank deleteBank = new DeleteBank();
+            deleteBank.setGUI();
+        }
+
         if(e.getActionCommand().equals("Exit")){
             MenuFrame.dispose();
         }
     }
+
 }

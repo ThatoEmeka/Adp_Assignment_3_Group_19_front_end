@@ -4,6 +4,8 @@ package za.ac.cput.gui.main;
 * Group 19 - Bank application
 * Capstone project
 * */
+import za.ac.cput.gui.address.ItemMenuGui;
+import za.ac.cput.gui.bank.BankItemMenuGui;
 import za.ac.cput.gui.address.AddressMenuGui;
 
 import javax.swing.*;
@@ -113,9 +115,29 @@ public class HomeGUI implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getActionCommand().equals("1. Bank")){
+            BankItemMenuGui bankItemMenuGui = new BankItemMenuGui();
+            bankItemMenuGui.setGUI();
+        }
+        if(e.getActionCommand().equals("2. Account")){
+            BankItemMenuGui bankItemMenuGui = new BankItemMenuGui();
+            bankItemMenuGui.setGUI();
+        }
+        if(e.getActionCommand().equals("3. Customer")){
+            BankItemMenuGui bankItemMenuGui = new BankItemMenuGui();
+            bankItemMenuGui.setGUI();
+        }
+        if(e.getActionCommand().equals("4. Contact")){
+            BankItemMenuGui bankItemMenuGui = new BankItemMenuGui();
+            bankItemMenuGui.setGUI();
+        }
         if(e.getActionCommand().equals("5. Address")){
             AddressMenuGui itemMenuGui = new AddressMenuGui();
             itemMenuGui.setGUI();
+        }
+        if(e.getActionCommand().equals("6. Statement")){
+                ItemMenuGui itemMenuGui = new ItemMenuGui();
+                itemMenuGui.setGUI();
         }
     }
 }
