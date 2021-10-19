@@ -13,6 +13,7 @@ public class CreateCustomer implements ActionListener {
     JTextField firstName, lastName;
     Font headingFont, bodyFont;
     Color color = Color.WHITE;
+    Color bg_color=Color.DARK_GRAY;
 
     public CreateCustomer()
     {
@@ -47,24 +48,27 @@ public class CreateCustomer implements ActionListener {
         panelCenter.setLayout(new GridLayout(2,2));
         panelSouth.setLayout(new GridLayout(1,3));
 
-        panelNorth.setBackground(Color.LIGHT_GRAY);
-        panelEast.setBackground(Color.LIGHT_GRAY);
-        panelSouth.setBackground(Color.LIGHT_GRAY);
-        panelWest.setBackground(Color.LIGHT_GRAY);
-        panelCenter.setBackground(Color.LIGHT_GRAY);
+        panelNorth.setBackground(bg_color);
+        panelEast.setBackground(bg_color);
+        panelSouth.setBackground(bg_color);
+        panelWest.setBackground(bg_color);
+        panelCenter.setBackground(bg_color);
 
         panelNorth.add(heading);
         heading.setFont(headingFont);
+        heading.setForeground(color);
 
         panelCenter.add(labelFirstName);
         labelFirstName.setFont(bodyFont);
         labelFirstName.setHorizontalAlignment(JLabel.CENTER);
+        labelFirstName.setForeground(color);
         panelCenter.add(firstName);
         firstName.setSize(1,1);
 
         panelCenter.add(labelLastName);
         labelLastName.setFont(bodyFont);
         labelLastName.setHorizontalAlignment(JLabel.CENTER);
+        labelLastName.setForeground(color);
         panelCenter.add(lastName);
 
         panelSouth.add(exit);
