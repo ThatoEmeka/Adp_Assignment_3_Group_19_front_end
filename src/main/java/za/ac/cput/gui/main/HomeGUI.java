@@ -4,7 +4,7 @@ package za.ac.cput.gui.main;
 * Group 19 - Bank application
 * Capstone project
 * */
-import za.ac.cput.gui.address.ItemMenuGui;
+import za.ac.cput.gui.address.AddressMenuGui;
 
 import javax.swing.*;
 import java.awt.*;
@@ -114,7 +114,7 @@ public class HomeGUI implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("5. Address")){
-            ItemMenuGui itemMenuGui = new ItemMenuGui();
+            AddressMenuGui itemMenuGui = new AddressMenuGui();
             itemMenuGui.setGUI();
         }
     }
