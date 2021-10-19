@@ -119,24 +119,20 @@ public class HomeGUI implements ActionListener {
             bankItemMenuGui.setGUI();
         }
         if(e.getActionCommand().equals("2. Account")){
-            BankItemMenuGui bankItemMenuGui = new BankItemMenuGui();
-            bankItemMenuGui.setGUI();
+            //TODO: Add page here
         }
         if(e.getActionCommand().equals("3. Customer")){
-            BankItemMenuGui bankItemMenuGui = new BankItemMenuGui();
-            bankItemMenuGui.setGUI();
+            //TODO: Add page here
         }
         if(e.getActionCommand().equals("4. Contact")){
-            BankItemMenuGui bankItemMenuGui = new BankItemMenuGui();
-            bankItemMenuGui.setGUI();
+            //TODO: Add page here
         }
         if(e.getActionCommand().equals("5. Address")){
             AddressMenuGui itemMenuGui = new AddressMenuGui();
             itemMenuGui.setGUI();
         }
         if(e.getActionCommand().equals("6. Statement")){
-            BankItemMenuGui bankItemMenuGui = new BankItemMenuGui();
-            bankItemMenuGui.setGUI();
+            //TODO: Add page here
         }
     }
 }
