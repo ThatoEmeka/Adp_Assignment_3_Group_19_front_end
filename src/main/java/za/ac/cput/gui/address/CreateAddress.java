@@ -9,11 +9,15 @@ public class CreateAddress implements ActionListener {
     private JFrame MenuFrame;
     private JPanel panelNorth, panelSouth, panelEast, panelWest, panelCenter;
     private JLabel lblHeading;
-    private JButton btnCreateAddress,  btnViewAddress, btnUpdateAddress, btnDeleteAddress, btnExit;
-    private JTextField txtStreet;
+    private JButton btnExit;
     private JLabel Filler1, Filler2, Filler3, Filler4, Filler5;
     private Font headingFont;
     Color btnColor = Color.WHITE;
+
+    //labels
+    private JLabel lblHouseNumber, lblStreet, lblCity, lblZipCode;
+    //text fields
+    private JTextField  getTxtHouseNumber, getTxtStreet,getTxtCity, getTxtZipCode;
 
     public CreateAddress(){
         //Font
@@ -33,6 +37,13 @@ public class CreateAddress implements ActionListener {
 
         //Heading
         lblHeading = new JLabel("ADD ADDRESS",JLabel.CENTER);
+        lblHouseNumber = new JLabel("House Number", JLabel.CENTER);
+        lblStreet = new JLabel("Street ", JLabel.CENTER);
+        lblCity = new JLabel("City", JLabel.CENTER);
+        lblZipCode = new JLabel("Zip code", JLabel.CENTER);
+
+        //text fields
+
 
         //Fillers:
         Filler1 = new JLabel("=====");
@@ -46,18 +57,10 @@ public class CreateAddress implements ActionListener {
         Filler5 = new JLabel("================================");
         Filler5.setForeground(Color.LIGHT_GRAY);
 
-        //Buttons:
-        btnCreateAddress = new JButton("Please add your address");
-        btnCreateAddress.setBackground(btnColor);
-        btnViewAddress = new JButton("View your address");
-        btnViewAddress.setBackground(btnColor);
-        btnUpdateAddress = new JButton("Update your address");
-        btnUpdateAddress.setBackground(btnColor);
-        btnDeleteAddress = new JButton("Delete your address");
-        btnDeleteAddress.setBackground(btnColor);
 
         btnExit = new JButton("Exit");
         btnExit.setBackground(btnColor);
+
     }
 
     public void setGUI() {
@@ -77,10 +80,19 @@ public class CreateAddress implements ActionListener {
 
         //Panel Center:
         panelCenter.add(Filler3);
-        panelCenter.add(btnCreateAddress);
-        panelCenter.add(btnViewAddress);
-        panelCenter.add(btnUpdateAddress);
-        panelCenter.add(btnDeleteAddress);
+        panelCenter.add(lblHouseNumber);
+     /*   panelCenter.add(getTxtHouseNumber);
+
+        panelCenter.add(lblStreet);
+        panelCenter.add(getTxtStreet);
+
+        panelCenter.add(lblCity);
+        panelCenter.add(getTxtCity);
+
+        panelCenter.add(lblZipCode);
+        panelCenter.add(getTxtZipCode);*/
+
+        //    panelCenter.add(txtHouseNumber);
         panelCenter.add(Filler4);
 
         //Panel East
@@ -100,10 +112,7 @@ public class CreateAddress implements ActionListener {
         MenuFrame.add(panelWest, BorderLayout.WEST);
 
         //Telling compiler to listen for actions from the buttons:
-        btnCreateAddress.addActionListener(this);
-        btnViewAddress.addActionListener(this);
-        btnUpdateAddress.addActionListener(this);
-        btnDeleteAddress.addActionListener(this);
+
         btnExit.addActionListener(this);
 
         //Set GUI:
@@ -114,6 +123,7 @@ public class CreateAddress implements ActionListener {
         MenuFrame.setVisible(true);
 
     }
+
 
 
     @Override
