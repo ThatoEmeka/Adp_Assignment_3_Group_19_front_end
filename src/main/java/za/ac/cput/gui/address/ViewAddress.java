@@ -1,5 +1,7 @@
 package za.ac.cput.gui.address;
-
+/*
+ * Author: Shyam Prag 28115873
+ * */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -46,13 +48,13 @@ public class ViewAddress implements ActionListener {
         Filler5.setForeground(Color.LIGHT_GRAY);
 
         //Buttons:
-        btnCreateAddress = new JButton("Please add your address");
+        btnCreateAddress = new JButton("House number: ");
         btnCreateAddress.setBackground(btnColor);
-        btnViewAddress = new JButton("View your address");
+        btnViewAddress = new JButton("Street: ");
         btnViewAddress.setBackground(btnColor);
-        btnUpdateAddress = new JButton("Update your address");
+        btnUpdateAddress = new JButton("City: ");
         btnUpdateAddress.setBackground(btnColor);
-        btnDeleteAddress = new JButton("Delete your address");
+        btnDeleteAddress = new JButton("Zip Code: ");
         btnDeleteAddress.setBackground(btnColor);
 
         btnExit = new JButton("Exit");
