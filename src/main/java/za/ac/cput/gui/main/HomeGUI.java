@@ -6,6 +6,7 @@ package za.ac.cput.gui.main;
 * */
 import za.ac.cput.gui.address.ItemMenuGui;
 import za.ac.cput.gui.bank.BankItemMenuGui;
+import za.ac.cput.gui.address.AddressMenuGui;
 
 import javax.swing.*;
 import java.awt.*;
@@ -131,8 +132,8 @@ public class HomeGUI implements ActionListener {
             bankItemMenuGui.setGUI();
         }
         if(e.getActionCommand().equals("5. Address")){
-                ItemMenuGui itemMenuGui = new ItemMenuGui();
-                itemMenuGui.setGUI();
+            AddressMenuGui itemMenuGui = new AddressMenuGui();
+            itemMenuGui.setGUI();
         }
         if(e.getActionCommand().equals("6. Statement")){
                 ItemMenuGui itemMenuGui = new ItemMenuGui();
