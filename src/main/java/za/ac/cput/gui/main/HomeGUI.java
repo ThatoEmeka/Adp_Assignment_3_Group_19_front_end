@@ -4,7 +4,6 @@ package za.ac.cput.gui.main;
 * Group 19 - Bank application
 * Capstone project
 * */
-import za.ac.cput.gui.address.ItemMenuGui;
 import za.ac.cput.gui.bank.BankItemMenuGui;
 import za.ac.cput.gui.address.AddressMenuGui;
 
@@ -136,8 +135,8 @@ public class HomeGUI implements ActionListener {
             itemMenuGui.setGUI();
         }
         if(e.getActionCommand().equals("6. Statement")){
-                ItemMenuGui itemMenuGui = new ItemMenuGui();
-                itemMenuGui.setGUI();
+            BankItemMenuGui bankItemMenuGui = new BankItemMenuGui();
+            bankItemMenuGui.setGUI();
         }
     }
 }
