@@ -1,5 +1,9 @@
 package za.ac.cput.gui.main;
-
+/*
+* ADP362S
+* Group 19 - Bank application
+* Capstone project
+* */
 import za.ac.cput.gui.address.ItemMenuGui;
 
 import javax.swing.*;
@@ -34,7 +38,6 @@ public class HomeGUI implements ActionListener {
         panelCenter.setBackground(backgroundColor);
 
         //Fillers
-
         Filler1 = new JLabel("======");
         Filler2 = new JLabel("======");
         Filler3 = new JLabel("======");
