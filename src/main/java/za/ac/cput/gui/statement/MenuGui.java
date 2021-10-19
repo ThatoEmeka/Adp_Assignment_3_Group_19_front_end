@@ -1,24 +1,30 @@
-package za.ac.cput.gui.address;
+package za.ac.cput.gui.statement;
+
+import za.ac.cput.gui.address.CreateAddress;
+import za.ac.cput.gui.address.DeleteAddress;
+import za.ac.cput.gui.address.UpdateAddress;
+import za.ac.cput.gui.address.ViewAddress;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ItemMenuGui implements ActionListener {
+public class MenuGui implements ActionListener{
+
     private JFrame MenuFrame;
     private JPanel panelNorth, panelSouth, panelEast, panelWest, panelCenter;
     private JLabel lblHeading;
-    private JButton btnCreateAddress,  btnViewAddress, btnUpdateAddress, btnDeleteAddress, btnExit;
+    private JButton btnCreateStatement,  btnViewStatement, btnUpdateStatement, btnDeleteStatement, btnExit;
     private JLabel Filler1, Filler2, Filler3, Filler4, Filler5;
     private Font headingFont;
     Color btnColor = Color.WHITE;
 
-    public ItemMenuGui(){
+    public MenuGui(){
         //Font
         headingFont = new Font("Times new roman", Font.BOLD, 30);
 
-        MenuFrame = new JFrame("ADD ADDRESS ");
+        MenuFrame = new JFrame("ADD STATEMENT ");
         panelNorth = new JPanel();
         panelSouth = new JPanel();
         panelEast = new JPanel();
@@ -31,7 +37,7 @@ public class ItemMenuGui implements ActionListener {
         panelCenter.setBackground(Color.LIGHT_GRAY);
 
         //Heading
-        lblHeading = new JLabel("ADD ADDRESS",JLabel.CENTER);
+        lblHeading = new JLabel("ADD STATEMENT",JLabel.CENTER);
 
         //Fillers:
         Filler1 = new JLabel("=====");
@@ -45,15 +51,15 @@ public class ItemMenuGui implements ActionListener {
         Filler5 = new JLabel("================================");
         Filler5.setForeground(Color.LIGHT_GRAY);
 
-        //Buttons:
-        btnCreateAddress = new JButton("CREATE  ADDRESS");
-        btnCreateAddress.setBackground(btnColor);
-        btnViewAddress = new JButton("VIEW  ADDRESS");
-        btnViewAddress.setBackground(btnColor);
-        btnUpdateAddress = new JButton("UPDATE  ADDRESS");
-        btnUpdateAddress.setBackground(btnColor);
-        btnDeleteAddress = new JButton("DELETE  ADDRESS");
-        btnDeleteAddress.setBackground(btnColor);
+
+        btnCreateStatement = new JButton("CREATE  STATEMENT");
+        btnCreateStatement.setBackground(btnColor);
+        btnViewStatement = new JButton("VIEW  STATEMENT");
+        btnViewStatement.setBackground(btnColor);
+        btnUpdateStatement = new JButton("UPDATE  STATEMENT");
+        btnUpdateStatement.setBackground(btnColor);
+        btnDeleteStatement = new JButton("DELETE  STATEMENT");
+        btnDeleteStatement.setBackground(btnColor);
 
         btnExit = new JButton("Exit");
         btnExit.setBackground(btnColor);
@@ -66,43 +72,37 @@ public class ItemMenuGui implements ActionListener {
         panelWest.setLayout(new GridLayout(5, 1));
         panelCenter.setLayout(new GridLayout(7, 1));
 
-        //Adding the components to the panels:
-        //Panel North:
+
         panelNorth.add(Filler5);
         panelNorth.add(lblHeading);
 
-        //Panel West:
         panelWest.add(Filler1);
 
-        //Panel Center:
         panelCenter.add(Filler3);
-        panelCenter.add(btnCreateAddress);
-        panelCenter.add(btnViewAddress);
-        panelCenter.add(btnUpdateAddress);
-        panelCenter.add(btnDeleteAddress);
+        panelCenter.add(btnCreateStatement);
+        panelCenter.add(btnViewStatement);
+        panelCenter.add(btnUpdateStatement);
+        panelCenter.add(btnDeleteStatement);
         panelCenter.add(Filler4);
 
-        //Panel East
         panelEast.add(Filler2);
 
-        //Panel South:
         panelSouth.add(btnExit);
 
-        //Heading
         lblHeading.setFont(headingFont);
 
-        //Adding panels to Customer Frame:
+
         MenuFrame.add(panelNorth, BorderLayout.NORTH);
         MenuFrame.add(panelSouth, BorderLayout.SOUTH);
         MenuFrame.add(panelEast, BorderLayout.EAST);
         MenuFrame.add(panelCenter, BorderLayout.CENTER);
         MenuFrame.add(panelWest, BorderLayout.WEST);
 
-        //Telling compiler to listen for actions from the buttons:
-        btnCreateAddress.addActionListener(this);
-        btnViewAddress.addActionListener(this);
-        btnUpdateAddress.addActionListener(this);
-        btnDeleteAddress.addActionListener(this);
+
+        btnCreateStatement.addActionListener(this);
+        btnViewStatement.addActionListener(this);
+        btnUpdateStatement.addActionListener(this);
+        btnDeleteStatement.addActionListener(this);
         btnExit.addActionListener(this);
 
         //Set GUI:
@@ -113,28 +113,26 @@ public class ItemMenuGui implements ActionListener {
         MenuFrame.setVisible(true);
 
     }
-
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals("CREATE  ADDRESS")){
-            CreateAddress createAddress = new CreateAddress();
-               createAddress.setGUI();
+        if(e.getActionCommand().equals("CREATE  STATEMENT")){
+            CreateStatement createStatement = new CreateStatement();
+            createStatement.setGUI();
         }
-        if(e.getActionCommand().equals("VIEW  ADDRESS")){
-         ViewAddress viewAddress = new ViewAddress();
-            viewAddress.setGUI();
+        if(e.getActionCommand().equals("VIEW  STATEMENT")){
+            ViewStatement viewStatement = new ViewStatement();
+            viewStatement.setGUI();
         }
-        if(e.getActionCommand().equals("UPDATE  ADDRESS")){
-            UpdateAddress updateAddress = new UpdateAddress();
-            updateAddress.setGUI();
+        if(e.getActionCommand().equals("UPDATE  STATEMENT")){
+            UpdateStatement updateStatement = new UpdateStatement();
+            updateStatement.setGUI();
         }
-        if(e.getActionCommand().equals("DELETE  ADDRESS")){
-            DeleteAddress deleteAddress = new DeleteAddress();
-            deleteAddress.setGUI();
+        if(e.getActionCommand().equals("DELETE  STATEMENT")){
+            DeleteStatement deleteStatement = new DeleteStatement();
+            deleteStatement.setGUI();
         }
 
         if(e.getActionCommand().equals("Exit")){
             MenuFrame.dispose();
         }
     }
-
 }
