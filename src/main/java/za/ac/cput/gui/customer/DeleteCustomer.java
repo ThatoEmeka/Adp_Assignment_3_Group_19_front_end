@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CreateCustomer implements ActionListener {
+public class DeleteCustomer implements ActionListener {
     JFrame jFrame;
     JPanel panelNorth, panelCenter, panelSouth, panelEast, panelWest;
     JLabel heading,labelFirstName,labelLastName, labelPadding1, labelPadding2;
@@ -15,9 +15,9 @@ public class CreateCustomer implements ActionListener {
     Color color = Color.WHITE;
     Color bg_color=Color.DARK_GRAY;
 
-    public CreateCustomer()
+    public DeleteCustomer()
     {
-        jFrame = new JFrame("Customer Menu");
+        jFrame = new JFrame("Delete Customer");
         headingFont = new Font("Times new roman", Font.BOLD, 30);
         bodyFont=new Font("Times new roman", Font.PLAIN,20);
         panelNorth=new JPanel();
@@ -26,10 +26,10 @@ public class CreateCustomer implements ActionListener {
         panelWest=new JPanel();
         panelEast=new JPanel();
 
-        heading=new JLabel("ADD CUSTOMER");
+        heading=new JLabel("REMOVE CUSTOMER");
 
-        labelFirstName=new JLabel("First names: ");
-        labelLastName=new JLabel("Last names: ");
+        labelFirstName=new JLabel("Customer first name: ");
+        //labelLastName=new JLabel("Last names: ");
 
         labelPadding1=new JLabel();
         labelPadding2=new JLabel();
@@ -45,14 +45,14 @@ public class CreateCustomer implements ActionListener {
     public void setGUI()
     {
         panelNorth.setLayout(new FlowLayout());
-        panelCenter.setLayout(new GridLayout(2,2));
+        panelCenter.setLayout(new GridLayout(1,2));
         panelSouth.setLayout(new GridLayout(1,3));
 
-        panelNorth.setBackground(bg_color);
-        panelEast.setBackground(bg_color);
-        panelSouth.setBackground(bg_color);
-        panelWest.setBackground(bg_color);
-        panelCenter.setBackground(bg_color);
+        panelNorth.setBackground(Color.DARK_GRAY);
+        panelEast.setBackground(Color.DARK_GRAY);
+        panelSouth.setBackground(Color.DARK_GRAY);
+        panelWest.setBackground(Color.DARK_GRAY);
+        panelCenter.setBackground(Color.DARK_GRAY);
 
         panelNorth.add(heading);
         heading.setFont(headingFont);
@@ -63,13 +63,13 @@ public class CreateCustomer implements ActionListener {
         labelFirstName.setHorizontalAlignment(JLabel.CENTER);
         labelFirstName.setForeground(color);
         panelCenter.add(firstName);
-        firstName.setSize(1,1);
-
+/*
         panelCenter.add(labelLastName);
         labelLastName.setFont(bodyFont);
         labelLastName.setHorizontalAlignment(JLabel.CENTER);
-        labelLastName.setForeground(color);
         panelCenter.add(lastName);
+
+ */
 
         panelSouth.add(exit);
         panelSouth.add(clear);
@@ -89,7 +89,7 @@ public class CreateCustomer implements ActionListener {
 
         jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         jFrame.pack();
-        jFrame.setSize(350, 170);
+        jFrame.setSize(370, 150);
         jFrame.setLocationRelativeTo(null);
         jFrame.setVisible(true);
     }
@@ -97,7 +97,7 @@ public class CreateCustomer implements ActionListener {
     public void clear()
     {
         firstName.setText("");
-        lastName.setText("");
+        //lastName.setText("");
         firstName.requestFocus();
     }
 

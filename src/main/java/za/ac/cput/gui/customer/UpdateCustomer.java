@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CreateCustomer implements ActionListener {
+public class UpdateCustomer implements ActionListener {
     JFrame jFrame;
     JPanel panelNorth, panelCenter, panelSouth, panelEast, panelWest;
     JLabel heading,labelFirstName,labelLastName, labelPadding1, labelPadding2;
@@ -15,9 +15,9 @@ public class CreateCustomer implements ActionListener {
     Color color = Color.WHITE;
     Color bg_color=Color.DARK_GRAY;
 
-    public CreateCustomer()
+    public UpdateCustomer()
     {
-        jFrame = new JFrame("Customer Menu");
+        jFrame = new JFrame("Update Customer");
         headingFont = new Font("Times new roman", Font.BOLD, 30);
         bodyFont=new Font("Times new roman", Font.PLAIN,20);
         panelNorth=new JPanel();
@@ -26,7 +26,7 @@ public class CreateCustomer implements ActionListener {
         panelWest=new JPanel();
         panelEast=new JPanel();
 
-        heading=new JLabel("ADD CUSTOMER");
+        heading=new JLabel("Update Customer");
 
         labelFirstName=new JLabel("First names: ");
         labelLastName=new JLabel("Last names: ");

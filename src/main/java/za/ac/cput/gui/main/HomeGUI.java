@@ -124,5 +124,10 @@ public class HomeGUI extends JFrame implements ActionListener {
             AccountMenuGUI.main(null);
             this.setVisible(false);
         }
+
+        if(e.getActionCommand().equals("3. Customer")){
+            ItemMenuGUI itemMenuGUI=new ItemMenuGUI();
+            itemMenuGUI.setGUI();
+        }
     }
 }
