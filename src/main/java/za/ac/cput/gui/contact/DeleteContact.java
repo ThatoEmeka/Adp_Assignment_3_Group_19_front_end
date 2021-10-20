@@ -8,7 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CreateContact implements ActionListener {
+public class DeleteContact implements ActionListener {
     private JFrame MenuFrame;
     private JPanel panelNorth, panelSouth, panelEast, panelWest, panelCenter;
     private JLabel lblHeading, jLabelId, jLabelName, jLabelEmail, jLabelMobile;
@@ -21,10 +21,10 @@ public class CreateContact implements ActionListener {
     Color btnColor = Color.WHITE;
 
 
-    public CreateContact(){
+    public DeleteContact(){
         headingFont = new Font("Times new roman", Font.BOLD, 30);
 
-        MenuFrame = new JFrame("CREATE A CONTACT ");
+        MenuFrame = new JFrame("Delete A CONTACT ");
         panelNorth = new JPanel();
         panelSouth = new JPanel();
         panelEast = new JPanel();
@@ -65,7 +65,7 @@ public class CreateContact implements ActionListener {
         Filler5 = new JLabel("================================");
         Filler5.setForeground(Color.LIGHT_GRAY);
 
-        btnDelete = new JButton("CREATE");
+        btnDelete = new JButton("Delete");
         btnDelete.setBackground(btnColor);
     }
 
@@ -88,7 +88,8 @@ public class CreateContact implements ActionListener {
         //Panel Center:
         panelCenter.add(Filler3);
         //Form
-
+        panelCenter.add(jLabelId);
+        panelCenter.add(txtId);
         panelCenter.add(jLabelName);
         panelCenter.add(txtName);
         panelCenter.add(jLabelEmail);
@@ -123,18 +124,13 @@ public class CreateContact implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals("CREATE")){
-
+        if(e.getActionCommand().equals("DELETE")){
 
             Contact contact = new Contact();
+            contact.getId();
 
-            contact.setName(txtName.getText());
-            contact.setEmail(txtEmail.getText());
-            contact.setMobile(txtMobile.getText());
 
-            ContactClient client = new ContactClient();
-            client.createContact(contact);
         }
     }
-}
 
+}

@@ -1,57 +1,37 @@
 package za.ac.cput.gui.contact;
 
-import za.ac.cput.client.Contact;
-import za.ac.cput.client.ContactClient;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CreateContact implements ActionListener {
+public class MenuContact implements ActionListener {
     private JFrame MenuFrame;
     private JPanel panelNorth, panelSouth, panelEast, panelWest, panelCenter;
-    private JLabel lblHeading, jLabelId, jLabelName, jLabelEmail, jLabelMobile;
-    private JButton btnDelete;
+    private JLabel lblHeading;
+    private JButton btnCreateAddress,  btnViewAddress, btnUpdateAddress, btnDeleteAddress, btnExit;
     private JLabel Filler1, Filler2, Filler3, Filler4, Filler5;
     private Font headingFont;
-    private JTextField txtId, txtName, txtEmail, txtMobile;
-
-
     Color btnColor = Color.WHITE;
 
-
-    public CreateContact(){
+    public MenuContact(){
+        //Font
         headingFont = new Font("Times new roman", Font.BOLD, 30);
 
-        MenuFrame = new JFrame("CREATE A CONTACT ");
+        MenuFrame = new JFrame("ADD CONTACT ");
         panelNorth = new JPanel();
         panelSouth = new JPanel();
         panelEast = new JPanel();
         panelWest = new JPanel();
         panelCenter = new JPanel();
-
-
         panelNorth.setBackground(Color.LIGHT_GRAY);
         panelEast.setBackground(Color.LIGHT_GRAY);
         panelSouth.setBackground(Color.LIGHT_GRAY);
         panelWest.setBackground(Color.LIGHT_GRAY);
         panelCenter.setBackground(Color.LIGHT_GRAY);
 
-
+        //Heading
         lblHeading = new JLabel("ADD CONTACT",JLabel.CENTER);
-        jLabelId = new JLabel("ID Number", JLabel.CENTER);
-        jLabelName = new JLabel("Name ", JLabel.CENTER);
-        jLabelEmail = new JLabel("Email", JLabel.CENTER);
-        jLabelMobile = new JLabel("Mobile Number", JLabel.CENTER);
-
-
-
-        txtId = new JTextField(" ", JTextField.CENTER);
-        txtName = new JTextField(" ", JTextField.CENTER);
-        txtEmail = new JTextField(" ", JTextField.CENTER);
-        txtMobile = new JTextField(" ", JTextField.CENTER);
-
 
         //Fillers:
         Filler1 = new JLabel("=====");
@@ -65,8 +45,18 @@ public class CreateContact implements ActionListener {
         Filler5 = new JLabel("================================");
         Filler5.setForeground(Color.LIGHT_GRAY);
 
-        btnDelete = new JButton("CREATE");
-        btnDelete.setBackground(btnColor);
+        //Buttons:
+        btnCreateAddress = new JButton("CREATE  CONTACT");
+        btnCreateAddress.setBackground(btnColor);
+        btnViewAddress = new JButton("VIEW  CONTACT");
+        btnViewAddress.setBackground(btnColor);
+        btnUpdateAddress = new JButton("UPDATE  CONTACT");
+        btnUpdateAddress.setBackground(btnColor);
+        btnDeleteAddress = new JButton("DELETE  CONTACT");
+        btnDeleteAddress.setBackground(btnColor);
+
+        btnExit = new JButton("Exit");
+        btnExit.setBackground(btnColor);
     }
 
     public void setGUI() {
@@ -74,10 +64,9 @@ public class CreateContact implements ActionListener {
         panelEast.setLayout(new GridLayout(5, 1));
         panelSouth.setLayout(new GridLayout(1, 3));
         panelWest.setLayout(new GridLayout(5, 1));
-        panelCenter.setLayout(new GridLayout(10, 1));
+        panelCenter.setLayout(new GridLayout(7, 1));
 
-        //All Panels
-
+        //Adding the components to the panels:
         //Panel North:
         panelNorth.add(Filler5);
         panelNorth.add(lblHeading);
@@ -87,54 +76,66 @@ public class CreateContact implements ActionListener {
 
         //Panel Center:
         panelCenter.add(Filler3);
-        //Form
-
-        panelCenter.add(jLabelName);
-        panelCenter.add(txtName);
-        panelCenter.add(jLabelEmail);
-        panelCenter.add(txtEmail);
-        panelCenter.add(jLabelMobile);
-        panelCenter.add(txtMobile);
+        panelCenter.add(btnCreateAddress);
+        panelCenter.add(btnViewAddress);
+        panelCenter.add(btnUpdateAddress);
+        panelCenter.add(btnDeleteAddress);
+        panelCenter.add(Filler4);
 
         //Panel East
         panelEast.add(Filler2);
 
         //Panel South:
-        panelSouth.add(btnDelete);
+        panelSouth.add(btnExit);
 
         //Heading
         lblHeading.setFont(headingFont);
 
+        //Adding panels to Customer Frame:
         MenuFrame.add(panelNorth, BorderLayout.NORTH);
         MenuFrame.add(panelSouth, BorderLayout.SOUTH);
         MenuFrame.add(panelEast, BorderLayout.EAST);
         MenuFrame.add(panelCenter, BorderLayout.CENTER);
         MenuFrame.add(panelWest, BorderLayout.WEST);
 
-        btnDelete.addActionListener(this);
+        //Telling compiler to listen for actions from the buttons:
+        btnCreateAddress.addActionListener(this);
+        btnViewAddress.addActionListener(this);
+        btnUpdateAddress.addActionListener(this);
+        btnDeleteAddress.addActionListener(this);
+        btnExit.addActionListener(this);
 
-
+        //Set GUI:
         MenuFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         MenuFrame.pack();
-        MenuFrame.setSize(400, 400);
+        MenuFrame.setSize(350, 350);
         MenuFrame.setLocationRelativeTo(null);
         MenuFrame.setVisible(true);
+
     }
 
-    @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals("CREATE")){
+        if(e.getActionCommand().equals("CREATE  CONTACT")){
+            CreateContact createContact = new CreateContact();
+            createContact.setGUI();
+        }
+/*        if(e.getActionCommand().equals("VIEW  CONTACT")){
+            ViewContact viewContact = new ViewContact();
+            viewContact.setGUI();
+        }
+        if(e.getActionCommand().equals("UPDATE  CONTACT")){
+            UpdateContact updateContact = new UpdateContact();
+            updateContact.setGUI();
+        }*/
+        if(e.getActionCommand().equals("DELETE  CONTACT")){
+            DeleteContact deleteContact = new DeleteContact();
+            deleteContact.setGUI();
+        }
 
-
-            Contact contact = new Contact();
-
-            contact.setName(txtName.getText());
-            contact.setEmail(txtEmail.getText());
-            contact.setMobile(txtMobile.getText());
-
-            ContactClient client = new ContactClient();
-            client.createContact(contact);
+        if(e.getActionCommand().equals("Exit")){
+            MenuFrame.dispose();
         }
     }
+
 }
 
