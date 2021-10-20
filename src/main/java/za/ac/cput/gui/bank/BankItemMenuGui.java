@@ -1,10 +1,5 @@
 package za.ac.cput.gui.bank;
 
-import za.ac.cput.gui.bank.CreateBank;
-import za.ac.cput.gui.bank.DeleteBank;
-import za.ac.cput.gui.bank.UpdateBank;
-import za.ac.cput.gui.bank.ViewBank;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -122,10 +117,10 @@ public class BankItemMenuGui implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("CREATE  BANK")){
             CreateBank createBank = new CreateBank();
-               createBank.setGUI();
+            createBank.setGUI();
         }
         if(e.getActionCommand().equals("VIEW  BANK")){
-         ViewBank viewBank = new ViewBank();
+            ViewBank viewBank = new ViewBank();
             viewBank.setGUI();
         }
         if(e.getActionCommand().equals("UPDATE  BANK")){

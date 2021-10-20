@@ -101,7 +101,6 @@ public class DeleteBank implements ActionListener {
 
         //Telling compiler to listen for actions from the buttons:
 
-
         //Set GUI:
         MenuFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         MenuFrame.pack();
@@ -113,8 +112,6 @@ public class DeleteBank implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
-
         if(e.getActionCommand().equals("Exit")){
             MenuFrame.dispose();
         }

@@ -15,7 +15,7 @@ public class CreateBank implements ActionListener {
     private JButton btnCreate;
     private JLabel Filler1, Filler2, Filler3, Filler4, Filler5;
     private Font headingFont;
-    private JTextField txtHouseNumber,  txtStreet,txtCity, txtZipCode;
+    private JTextField txtBankName,  txtBranchCode ,txtCity, txtZipCode;
 
 
     Color btnColor = Color.WHITE;
@@ -46,8 +46,8 @@ public class CreateBank implements ActionListener {
         lblCity = new JLabel("City", JLabel.CENTER);
         lblZipCode = new JLabel("Zip code", JLabel.CENTER);
         //text fields
-        txtHouseNumber = new JTextField(" ", JTextField.CENTER);
-        txtStreet = new JTextField(" ", JTextField.CENTER);
+        txtBankName = new JTextField(" ", JTextField.CENTER);
+        txtBranchCode = new JTextField(" ", JTextField.CENTER);
         txtCity = new JTextField(" ", JTextField.CENTER);
         txtZipCode = new JTextField(" ", JTextField.CENTER);
 
@@ -87,10 +87,10 @@ public class CreateBank implements ActionListener {
         panelCenter.add(Filler3);
         //houseNumber
         panelCenter.add(lblBankName);
-        panelCenter.add(txtHouseNumber);
+        panelCenter.add(txtBankName);
         //street name
         panelCenter.add(lblBranchCode);
-        panelCenter.add(txtStreet);
+        panelCenter.add(txtBranchCode);
         //city
         panelCenter.add(lblCity);
         panelCenter.add(txtCity);

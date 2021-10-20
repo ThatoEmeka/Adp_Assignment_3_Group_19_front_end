@@ -1,5 +1,7 @@
 package za.ac.cput.gui.bank;
-
+/*
+ * Author: Shyam Prag 28115873
+ * */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -46,13 +48,13 @@ public class ViewBank implements ActionListener {
         Filler5.setForeground(Color.LIGHT_GRAY);
 
         //Buttons:
-        btnCreateBank = new JButton("Please add your bank");
+        btnCreateBank = new JButton("Bank Name: ");
         btnCreateBank.setBackground(btnColor);
-        btnViewBank = new JButton("View your bank");
+        btnViewBank = new JButton("Branch Code: ");
         btnViewBank.setBackground(btnColor);
-        btnUpdateBank = new JButton("Update your bank");
+        btnUpdateBank = new JButton("City: ");
         btnUpdateBank.setBackground(btnColor);
-        btnDeleteBank = new JButton("Delete your bank");
+        btnDeleteBank = new JButton("Zip Code: ");
         btnDeleteBank.setBackground(btnColor);
 
         btnExit = new JButton("Exit");
