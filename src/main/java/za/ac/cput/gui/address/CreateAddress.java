@@ -3,6 +3,9 @@ package za.ac.cput.gui.address;
 * Author: Shyam Prag 28115873
 * */
 
+import za.ac.cput.client.Address;
+import za.ac.cput.client.AddressClient;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -128,7 +131,14 @@ public class CreateAddress implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("Create")){
+            Address address = new Address();
+            address.setStreet(txtStreet.getText());
+            address.setCity(txtCity.getText());
+            address.setHouseNumber(txtHouseNumber.getText());
+            address.setZipCode(txtZipCode.getText());
 
+            AddressClient client = new AddressClient();
+            client.createAddress(address);
         }
     }
 }
