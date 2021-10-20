@@ -10,7 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MenuGui implements ActionListener{
+public class StatementMenuGui implements ActionListener{
 
     private JFrame MenuFrame;
     private JPanel panelNorth, panelSouth, panelEast, panelWest, panelCenter;
@@ -20,7 +20,7 @@ public class MenuGui implements ActionListener{
     private Font headingFont;
     Color btnColor = Color.WHITE;
 
-    public MenuGui(){
+    public StatementMenuGui(){
         //Font
         headingFont = new Font("Times new roman", Font.BOLD, 30);
 
