@@ -1,7 +1,7 @@
 package za.ac.cput.gui.main;
 
 import za.ac.cput.gui.account.AccountMenuGUI;
-import za.ac.cput.gui.address.ItemMenuGui;
+import za.ac.cput.gui.address.AddressMenuGui;
 
 import javax.swing.*;
 import java.awt.*;
@@ -112,8 +112,8 @@ public class HomeGUI extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("5. Address")){
-            ItemMenuGui itemMenuGui = new ItemMenuGui();
-            itemMenuGui.setGUI();
+            AddressMenuGui addressMenuGui = new AddressMenuGui();
+            addressMenuGui.setGUI();
         }
         else if(e.getActionCommand().equals("2. Account")){
             AccountMenuGUI.main(null);
