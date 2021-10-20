@@ -1,26 +1,30 @@
-package za.ac.cput.gui.bank;
+package za.ac.cput.gui.statement;
+
+import za.ac.cput.gui.address.CreateAddress;
+import za.ac.cput.gui.address.DeleteAddress;
+import za.ac.cput.gui.address.UpdateAddress;
+import za.ac.cput.gui.address.ViewAddress;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CreateBank implements ActionListener {
+public class MenuGui implements ActionListener{
 
-private JFrame MenuFrame;
+    private JFrame MenuFrame;
     private JPanel panelNorth, panelSouth, panelEast, panelWest, panelCenter;
     private JLabel lblHeading;
-    private JButton btnCreateBank,  btnViewBank, btnUpdateBank, btnDeleteBank, btnExit;
-    private JTextField txtStreet;
+    private JButton btnCreateStatement,  btnViewStatement, btnUpdateStatement, btnDeleteStatement, btnExit;
     private JLabel Filler1, Filler2, Filler3, Filler4, Filler5;
     private Font headingFont;
     Color btnColor = Color.WHITE;
 
-    public CreateBank(){
+    public MenuGui(){
         //Font
         headingFont = new Font("Times new roman", Font.BOLD, 30);
 
-        MenuFrame = new JFrame("CREATE BANK");
+        MenuFrame = new JFrame("ADD STATEMENT ");
         panelNorth = new JPanel();
         panelSouth = new JPanel();
         panelEast = new JPanel();
@@ -33,7 +37,7 @@ private JFrame MenuFrame;
         panelCenter.setBackground(Color.LIGHT_GRAY);
 
         //Heading
-        lblHeading = new JLabel("ADD BANK",JLabel.CENTER);
+        lblHeading = new JLabel("ADD STATEMENT",JLabel.CENTER);
 
         //Fillers:
         Filler1 = new JLabel("=====");
@@ -47,15 +51,15 @@ private JFrame MenuFrame;
         Filler5 = new JLabel("================================");
         Filler5.setForeground(Color.LIGHT_GRAY);
 
-        //Buttons:
-        btnCreateBank = new JButton("Please add your Bank Account");
-        btnCreateBank.setBackground(btnColor);
-        btnViewBank = new JButton("View your Bank Account");
-        btnViewBank.setBackground(btnColor);
-        btnUpdateBank = new JButton("Update your Bank Account");
-        btnUpdateBank.setBackground(btnColor);
-        btnDeleteBank = new JButton("Delete your Bank Account");
-        btnDeleteBank.setBackground(btnColor);
+
+        btnCreateStatement = new JButton("CREATE  STATEMENT");
+        btnCreateStatement.setBackground(btnColor);
+        btnViewStatement = new JButton("VIEW  STATEMENT");
+        btnViewStatement.setBackground(btnColor);
+        btnUpdateStatement = new JButton("UPDATE  STATEMENT");
+        btnUpdateStatement.setBackground(btnColor);
+        btnDeleteStatement = new JButton("DELETE  STATEMENT");
+        btnDeleteStatement.setBackground(btnColor);
 
         btnExit = new JButton("Exit");
         btnExit.setBackground(btnColor);
@@ -68,43 +72,37 @@ private JFrame MenuFrame;
         panelWest.setLayout(new GridLayout(5, 1));
         panelCenter.setLayout(new GridLayout(7, 1));
 
-        //Adding the components to the panels:
-        //Panel North:
+
         panelNorth.add(Filler5);
         panelNorth.add(lblHeading);
 
-        //Panel West:
         panelWest.add(Filler1);
 
-        //Panel Center:
         panelCenter.add(Filler3);
-        panelCenter.add(btnCreateBank);
-        panelCenter.add(btnViewBank);
-        panelCenter.add(btnUpdateBank);
-        panelCenter.add(btnDeleteBank);
+        panelCenter.add(btnCreateStatement);
+        panelCenter.add(btnViewStatement);
+        panelCenter.add(btnUpdateStatement);
+        panelCenter.add(btnDeleteStatement);
         panelCenter.add(Filler4);
 
-        //Panel East
         panelEast.add(Filler2);
 
-        //Panel South:
         panelSouth.add(btnExit);
 
-        //Heading
         lblHeading.setFont(headingFont);
 
-        //Adding panels to Customer Frame:
+
         MenuFrame.add(panelNorth, BorderLayout.NORTH);
         MenuFrame.add(panelSouth, BorderLayout.SOUTH);
         MenuFrame.add(panelEast, BorderLayout.EAST);
         MenuFrame.add(panelCenter, BorderLayout.CENTER);
         MenuFrame.add(panelWest, BorderLayout.WEST);
 
-        //Telling compiler to listen for actions from the buttons:
-        btnCreateBank.addActionListener(this);
-        btnViewBank.addActionListener(this);
-        btnUpdateBank.addActionListener(this);
-        btnDeleteBank.addActionListener(this);
+
+        btnCreateStatement.addActionListener(this);
+        btnViewStatement.addActionListener(this);
+        btnUpdateStatement.addActionListener(this);
+        btnDeleteStatement.addActionListener(this);
         btnExit.addActionListener(this);
 
         //Set GUI:
@@ -113,10 +111,26 @@ private JFrame MenuFrame;
         MenuFrame.setSize(350, 350);
         MenuFrame.setLocationRelativeTo(null);
         MenuFrame.setVisible(true);
-    }
 
-    @Override
+    }
     public void actionPerformed(ActionEvent e) {
+        if(e.getActionCommand().equals("CREATE  STATEMENT")){
+            CreateStatement createStatement = new CreateStatement();
+            createStatement.setGUI();
+        }
+        if(e.getActionCommand().equals("VIEW  STATEMENT")){
+            ViewStatement viewStatement = new ViewStatement();
+            viewStatement.setGUI();
+        }
+        if(e.getActionCommand().equals("UPDATE  STATEMENT")){
+            UpdateStatement updateStatement = new UpdateStatement();
+            updateStatement.setGUI();
+        }
+        if(e.getActionCommand().equals("DELETE  STATEMENT")){
+            DeleteStatement deleteStatement = new DeleteStatement();
+            deleteStatement.setGUI();
+        }
+
         if(e.getActionCommand().equals("Exit")){
             MenuFrame.dispose();
         }

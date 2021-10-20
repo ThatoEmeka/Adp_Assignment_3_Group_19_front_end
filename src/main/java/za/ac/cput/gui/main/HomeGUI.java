@@ -1,14 +1,14 @@
 package za.ac.cput.gui.main;
 
-import za.ac.cput.gui.address.ItemMenuGui;
-import za.ac.cput.gui.customer.ItemMenuGUI;
+import za.ac.cput.gui.account.AccountMenuGUI;
+import za.ac.cput.gui.address.AddressMenuGui;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class HomeGUI implements ActionListener {
+public class HomeGUI extends JFrame implements ActionListener {
     private JFrame mainframe;
     private JPanel panelNorth, panelSouth, panelEast, panelWest, panelCenter;
     private JLabel lblHeading;
@@ -112,8 +112,12 @@ public class HomeGUI implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("5. Address")){
-            ItemMenuGui itemMenuGui = new ItemMenuGui();
-            itemMenuGui.setGUI();
+            AddressMenuGui addressMenuGui = new AddressMenuGui();
+            addressMenuGui.setGUI();
+        }
+        else if(e.getActionCommand().equals("2. Account")){
+            AccountMenuGUI.main(null);
+            this.setVisible(false);
         }
 
         if(e.getActionCommand().equals("3. Customer")){

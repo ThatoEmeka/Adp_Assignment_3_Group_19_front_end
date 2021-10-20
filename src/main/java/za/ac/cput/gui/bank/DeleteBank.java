@@ -1,38 +1,30 @@
-package za.ac.cput.gui.address;
-/*
-* Author: Shyam Prag 28115873
-* */
+package za.ac.cput.gui.bank;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CreateAddress implements ActionListener {
+public class DeleteBank implements ActionListener {
     private JFrame MenuFrame;
     private JPanel panelNorth, panelSouth, panelEast, panelWest, panelCenter;
-    private JLabel lblHeading,lblHouseNumber, lblStreet, lblCity, lblZipCode;
-    private JButton btnCreate;
+    private JLabel lblHeading;
+    private JButton btnCreateBank,  btnViewBank, btnUpdateBank, btnDeleteBank, btnExit;
+    private JTextField txtStreet;
     private JLabel Filler1, Filler2, Filler3, Filler4, Filler5;
     private Font headingFont;
-    private JTextField txtHouseNumber,  txtStreet,txtCity, txtZipCode;
-
-
     Color btnColor = Color.WHITE;
 
-
-    public CreateAddress(){
+    public DeleteBank(){
         //Font
         headingFont = new Font("Times new roman", Font.BOLD, 30);
 
-        MenuFrame = new JFrame("CREATE ADDRESS ");
+        MenuFrame = new JFrame("DELETE BANK ");
         panelNorth = new JPanel();
         panelSouth = new JPanel();
         panelEast = new JPanel();
         panelWest = new JPanel();
         panelCenter = new JPanel();
-
-
         panelNorth.setBackground(Color.LIGHT_GRAY);
         panelEast.setBackground(Color.LIGHT_GRAY);
         panelSouth.setBackground(Color.LIGHT_GRAY);
@@ -40,17 +32,7 @@ public class CreateAddress implements ActionListener {
         panelCenter.setBackground(Color.LIGHT_GRAY);
 
         //Heading
-        lblHeading = new JLabel("ADD ADDRESS",JLabel.CENTER);
-        lblHouseNumber = new JLabel("House Number", JLabel.CENTER);
-        lblStreet = new JLabel("Street ", JLabel.CENTER);
-        lblCity = new JLabel("City", JLabel.CENTER);
-        lblZipCode = new JLabel("Zip code", JLabel.CENTER);
-        //text fields
-        txtHouseNumber = new JTextField(" ", JTextField.CENTER);
-        txtStreet = new JTextField(" ", JTextField.CENTER);
-        txtCity = new JTextField(" ", JTextField.CENTER);
-        txtZipCode = new JTextField(" ", JTextField.CENTER);
-
+        lblHeading = new JLabel("DELETE BANK",JLabel.CENTER);
 
         //Fillers:
         Filler1 = new JLabel("=====");
@@ -64,8 +46,18 @@ public class CreateAddress implements ActionListener {
         Filler5 = new JLabel("================================");
         Filler5.setForeground(Color.LIGHT_GRAY);
 
-        btnCreate = new JButton("Create");
-        btnCreate.setBackground(btnColor);
+       //Buttons:
+        btnCreateBank = new JButton("Please add your bank");
+        btnCreateBank.setBackground(btnColor);
+        btnViewBank = new JButton("View your bank");
+        btnViewBank.setBackground(btnColor);
+        btnUpdateBank = new JButton("Update your bank");
+        btnUpdateBank.setBackground(btnColor);
+        btnDeleteBank = new JButton("Delete your bank");
+        btnDeleteBank.setBackground(btnColor);
+
+        btnExit = new JButton("Exit");
+        btnExit.setBackground(btnColor);
     }
 
     public void setGUI() {
@@ -73,9 +65,9 @@ public class CreateAddress implements ActionListener {
         panelEast.setLayout(new GridLayout(5, 1));
         panelSouth.setLayout(new GridLayout(1, 3));
         panelWest.setLayout(new GridLayout(5, 1));
-        panelCenter.setLayout(new GridLayout(10, 1));
+        panelCenter.setLayout(new GridLayout(7, 1));
 
-        //Add components to panels
+        //Adding the components to the panels:
         //Panel North:
         panelNorth.add(Filler5);
         panelNorth.add(lblHeading);
@@ -85,24 +77,17 @@ public class CreateAddress implements ActionListener {
 
         //Panel Center:
         panelCenter.add(Filler3);
-        //houseNumber
-        panelCenter.add(lblHouseNumber);
-        panelCenter.add(txtHouseNumber);
-        //street name
-        panelCenter.add(lblStreet);
-        panelCenter.add(txtStreet);
-        //city
-        panelCenter.add(lblCity);
-        panelCenter.add(txtCity);
-        //zipCode
-        panelCenter.add(lblZipCode);
-        panelCenter.add(txtZipCode);
+        panelCenter.add(btnCreateBank);
+        panelCenter.add(btnViewBank);
+        panelCenter.add(btnUpdateBank);
+        panelCenter.add(btnDeleteBank);
+        panelCenter.add(Filler4);
 
         //Panel East
         panelEast.add(Filler2);
 
         //Panel South:
-        panelSouth.add(btnCreate);
+        panelSouth.add(btnExit);
 
         //Heading
         lblHeading.setFont(headingFont);
@@ -115,20 +100,23 @@ public class CreateAddress implements ActionListener {
         MenuFrame.add(panelWest, BorderLayout.WEST);
 
         //Telling compiler to listen for actions from the buttons:
-        btnCreate.addActionListener(this);
+
 
         //Set GUI:
         MenuFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         MenuFrame.pack();
-        MenuFrame.setSize(400, 400);
+        MenuFrame.setSize(350, 350);
         MenuFrame.setLocationRelativeTo(null);
         MenuFrame.setVisible(true);
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals("Create")){
 
+
+        if(e.getActionCommand().equals("Exit")){
+            MenuFrame.dispose();
         }
     }
 }
