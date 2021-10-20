@@ -4,6 +4,7 @@ import za.ac.cput.gui.account.AccountMenuGUI;
 import za.ac.cput.gui.address.AddressMenuGui;
 import za.ac.cput.gui.contact.MenuContact;
 import za.ac.cput.gui.customer.CustomerMenuGUI;
+import za.ac.cput.gui.statement.StatementMenuGui;
 
 import javax.swing.*;
 import java.awt.*;
@@ -126,6 +127,11 @@ public class HomeGUI extends JFrame implements ActionListener {
         menuContact.setGUI();
 
     }
+
+        else if(e.getActionCommand().equals("6. Statement")){
+            StatementMenuGui statementMenuGui = new StatementMenuGui();
+            statementMenuGui.setGUI();
+        }
 
         if(e.getActionCommand().equals("3. Customer")){
             CustomerMenuGUI customerMenuGUI =new CustomerMenuGUI();
