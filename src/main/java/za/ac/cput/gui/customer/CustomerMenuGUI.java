@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ItemMenuGUI implements ActionListener {
+public class CustomerMenuGUI extends JFrame implements ActionListener {
     private final JFrame MenuFrame;
     private final JPanel panelNorth;
     private final JPanel panelSouth;
@@ -27,7 +27,7 @@ public class ItemMenuGUI implements ActionListener {
     Color color = Color.WHITE;
     Color bg_color=Color.DARK_GRAY;
 
-    public ItemMenuGUI(){
+    public CustomerMenuGUI(){
         headingFont = new Font("Times new roman", Font.BOLD, 30);
 
         MenuFrame = new JFrame("Customer Menu ");
@@ -121,10 +121,10 @@ public class ItemMenuGUI implements ActionListener {
             CreateCustomer createCustomer=new CreateCustomer();
             createCustomer.setGUI();
         }
-        /*
         if(e.getActionCommand().equals("View customers")){
-
-        }*/
+            ViewCustomer viewCustomer=new ViewCustomer();
+            viewCustomer.setGUI();
+        }
         if(e.getActionCommand().equals("Update customer")){
             UpdateCustomer updateCustomer=new UpdateCustomer();
             updateCustomer.setGUI();
