@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class UpdateCustomer implements ActionListener {
+public class UpdateCustomer extends JFrame implements ActionListener {
     JFrame jFrame;
     JPanel panelNorth, panelCenter, panelSouth, panelEast, panelWest;
     JLabel heading,labelFirstName,labelLastName, labelPadding1, labelPadding2;
@@ -37,7 +37,7 @@ public class UpdateCustomer implements ActionListener {
         firstName=new JTextField();
         lastName=new JTextField();
 
-        save=new JButton("Save");
+        save=new JButton("Update");
         exit=new JButton("Exit");
         clear=new JButton("Clear");
     }
@@ -101,6 +101,9 @@ public class UpdateCustomer implements ActionListener {
         firstName.requestFocus();
     }
 
+    public void update() {
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("Exit"))
@@ -111,11 +114,11 @@ public class UpdateCustomer implements ActionListener {
         {
             clear();
         }
+        if(e.getActionCommand().equals("Update"))
+        {
+            update();
+        }
 
     }
 
-    /*public static void main(String[] args) {
-        new CreateCustomer().setGUI();
-    }
-     */
 }

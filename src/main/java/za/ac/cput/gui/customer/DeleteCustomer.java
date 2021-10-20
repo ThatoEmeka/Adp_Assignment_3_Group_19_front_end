@@ -5,11 +5,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class DeleteCustomer implements ActionListener {
+public class DeleteCustomer extends JFrame implements ActionListener {
     JFrame jFrame;
     JPanel panelNorth, panelCenter, panelSouth, panelEast, panelWest;
     JLabel heading,labelFirstName,labelLastName, labelPadding1, labelPadding2;
-    JButton save,exit,clear;
+    JButton delete,exit;
     JTextField firstName, lastName;
     Font headingFont, bodyFont;
     Color color = Color.WHITE;
@@ -37,16 +37,15 @@ public class DeleteCustomer implements ActionListener {
         firstName=new JTextField();
         lastName=new JTextField();
 
-        save=new JButton("Save");
+        delete=new JButton("Delete");
         exit=new JButton("Exit");
-        clear=new JButton("Clear");
     }
 
     public void setGUI()
     {
         panelNorth.setLayout(new FlowLayout());
         panelCenter.setLayout(new GridLayout(1,2));
-        panelSouth.setLayout(new GridLayout(1,3));
+        panelSouth.setLayout(new GridLayout(1,2));
 
         panelNorth.setBackground(Color.DARK_GRAY);
         panelEast.setBackground(Color.DARK_GRAY);
@@ -72,20 +71,17 @@ public class DeleteCustomer implements ActionListener {
  */
 
         panelSouth.add(exit);
-        panelSouth.add(clear);
-        panelSouth.add(save);
-        save.setBackground(color);
+        panelSouth.add(delete);
+        delete.setBackground(color);
         exit.setBackground(color);
-        clear.setBackground(color);
 
         jFrame.add(panelNorth,BorderLayout.NORTH);
         jFrame.add(panelCenter,BorderLayout.CENTER);
         jFrame.add(panelSouth, BorderLayout.SOUTH);
         jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        save.addActionListener(this);
         exit.addActionListener(this);
-        clear.addActionListener(this);
+        delete.addActionListener(this);
 
         jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         jFrame.pack();
@@ -94,11 +90,9 @@ public class DeleteCustomer implements ActionListener {
         jFrame.setVisible(true);
     }
 
-    public void clear()
+    public void delete()
     {
-        firstName.setText("");
-        //lastName.setText("");
-        firstName.requestFocus();
+
     }
 
     @Override
@@ -107,15 +101,11 @@ public class DeleteCustomer implements ActionListener {
         {
             jFrame.dispose();
         }
-        if(e.getActionCommand().equals("Clear"))
+        if(e.getActionCommand().equals("Delete"))
         {
-            clear();
+            delete();
         }
 
     }
 
-    /*public static void main(String[] args) {
-        new CreateCustomer().setGUI();
-    }
-     */
 }

@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CreateCustomer implements ActionListener {
+public class CreateCustomer extends JFrame implements ActionListener {
     JFrame jFrame;
     JPanel panelNorth, panelCenter, panelSouth, panelEast, panelWest;
     JLabel heading,labelFirstName,labelLastName, labelPadding1, labelPadding2;
@@ -17,7 +17,7 @@ public class CreateCustomer implements ActionListener {
 
     public CreateCustomer()
     {
-        jFrame = new JFrame("Customer Menu");
+        jFrame = new JFrame("Add customer");
         headingFont = new Font("Times new roman", Font.BOLD, 30);
         bodyFont=new Font("Times new roman", Font.PLAIN,20);
         panelNorth=new JPanel();
@@ -114,8 +114,4 @@ public class CreateCustomer implements ActionListener {
 
     }
 
-    /*public static void main(String[] args) {
-        new CreateCustomer().setGUI();
-    }
-     */
 }
