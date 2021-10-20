@@ -1,18 +1,14 @@
 package za.ac.cput.gui.main;
-/*
-* ADP362S
-* Group 19 - Bank application
-* Capstone project
-* */
-import za.ac.cput.gui.bank.BankItemMenuGui;
-import za.ac.cput.gui.address.AddressMenuGui;
+
+import za.ac.cput.gui.account.AccountMenuGUI;
+import za.ac.cput.gui.address.ItemMenuGui;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class HomeGUI implements ActionListener {
+public class HomeGUI extends JFrame implements ActionListener {
     private JFrame mainframe;
     private JPanel panelNorth, panelSouth, panelEast, panelWest, panelCenter;
     private JLabel lblHeading;
@@ -39,6 +35,7 @@ public class HomeGUI implements ActionListener {
         panelCenter.setBackground(backgroundColor);
 
         //Fillers
+
         Filler1 = new JLabel("======");
         Filler2 = new JLabel("======");
         Filler3 = new JLabel("======");
@@ -114,25 +111,13 @@ public class HomeGUI implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals("1. Bank")){
-            BankItemMenuGui bankItemMenuGui = new BankItemMenuGui();
-            bankItemMenuGui.setGUI();
-        }
-        if(e.getActionCommand().equals("2. Account")){
-            //TODO: Add page here
-        }
-        if(e.getActionCommand().equals("3. Customer")){
-            //TODO: Add page here
-        }
-        if(e.getActionCommand().equals("4. Contact")){
-            //TODO: Add page here
-        }
         if(e.getActionCommand().equals("5. Address")){
-            AddressMenuGui itemMenuGui = new AddressMenuGui();
+            ItemMenuGui itemMenuGui = new ItemMenuGui();
             itemMenuGui.setGUI();
         }
-        if(e.getActionCommand().equals("6. Statement")){
-            //TODO: Add page here
+        else if(e.getActionCommand().equals("2. Account")){
+            AccountMenuGUI.main(null);
+            this.setVisible(false);
         }
     }
 }
