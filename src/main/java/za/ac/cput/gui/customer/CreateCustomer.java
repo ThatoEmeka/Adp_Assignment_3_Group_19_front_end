@@ -1,9 +1,13 @@
 package za.ac.cput.gui.customer;
 
+import za.ac.cput.client.Customer;
+import za.ac.cput.client.CustomerClient;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Locale;
 
 public class CreateCustomer extends JFrame implements ActionListener {
     JFrame jFrame;
@@ -101,6 +105,23 @@ public class CreateCustomer extends JFrame implements ActionListener {
         firstName.requestFocus();
     }
 
+    public void save()
+    {
+        Customer customer=new Customer();
+        if(firstName.getText().isEmpty()||lastName.getText().isEmpty())
+        {
+            System.out.println("Please fill in both fields");
+        }
+        else
+        {
+            customer.setFirstName(firstName.getText());
+            customer.setLastName(lastName.getText());
+            CustomerClient client=new CustomerClient();
+            client.createCustomer(customer);
+            jFrame.dispose();
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("Exit"))
@@ -110,6 +131,10 @@ public class CreateCustomer extends JFrame implements ActionListener {
         if(e.getActionCommand().equals("Clear"))
         {
             clear();
+        }
+        if(e.getActionCommand().equals("Save"))
+        {
+            save();
         }
 
     }
