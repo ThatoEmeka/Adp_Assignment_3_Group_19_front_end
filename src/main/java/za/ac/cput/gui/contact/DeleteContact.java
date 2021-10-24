@@ -124,11 +124,10 @@ public class DeleteContact implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals("DELETE")){
+        if(e.getActionCommand().equals("Delete")){
 
-            Contact contact = new Contact();
-            contact.getId();
-
+            ContactClient client = new ContactClient();
+            client.deleteContact(txtId.getText());
 
         }
     }

@@ -119,14 +119,14 @@ public class MenuContact implements ActionListener {
             CreateContact createContact = new CreateContact();
             createContact.setGUI();
         }
-/*        if(e.getActionCommand().equals("VIEW  CONTACT")){
+        if(e.getActionCommand().equals("VIEW  CONTACT")){
             ViewContact viewContact = new ViewContact();
             viewContact.setGUI();
         }
         if(e.getActionCommand().equals("UPDATE  CONTACT")){
             UpdateContact updateContact = new UpdateContact();
             updateContact.setGUI();
-        }*/
+        }
         if(e.getActionCommand().equals("DELETE  CONTACT")){
             DeleteContact deleteContact = new DeleteContact();
             deleteContact.setGUI();
