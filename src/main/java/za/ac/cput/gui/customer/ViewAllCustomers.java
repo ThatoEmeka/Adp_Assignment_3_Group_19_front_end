@@ -42,6 +42,7 @@ public class ViewAllCustomers extends JFrame implements ActionListener {
         jTextArea.setForeground(color);
         jTextArea.setBackground(bg_color);
         jTextArea.setLineWrap(true);
+        jTextArea.setEditable(false);
 
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
