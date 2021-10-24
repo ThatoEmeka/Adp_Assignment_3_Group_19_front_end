@@ -1,5 +1,8 @@
 package za.ac.cput.gui.address;
 
+import za.ac.cput.client.Address;
+import za.ac.cput.client.AddressClient;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -127,7 +130,9 @@ public class DeleteAddress implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("DELETE")){
-
+            AddressClient address = new AddressClient();
+            address.deleteAddress(txtStreet.getText());
+            MenuFrame.dispose();
         }
     }
 }

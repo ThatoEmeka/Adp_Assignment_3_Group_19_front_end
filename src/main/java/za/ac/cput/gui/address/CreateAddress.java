@@ -139,6 +139,7 @@ public class CreateAddress implements ActionListener {
 
             AddressClient client = new AddressClient();
             client.createAddress(address);
+            MenuFrame.dispose();
         }
     }
 }

@@ -128,6 +128,8 @@ public class UpdateAddress implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("UPDATE")){
 
+
+            MenuFrame.dispose();
         }
     }
 }

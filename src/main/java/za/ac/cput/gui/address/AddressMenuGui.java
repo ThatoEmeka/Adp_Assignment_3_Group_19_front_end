@@ -120,18 +120,22 @@ public class AddressMenuGui implements ActionListener {
         if(e.getActionCommand().equals("CREATE  ADDRESS")){
             CreateAddress createAddress = new CreateAddress();
                createAddress.setGUI();
+            MenuFrame.dispose();
         }
         if(e.getActionCommand().equals("VIEW  ADDRESS")){
          ViewAddress viewAddress = new ViewAddress();
             viewAddress.setGUI();
+            MenuFrame.dispose();
         }
         if(e.getActionCommand().equals("UPDATE  ADDRESS")){
             UpdateAddress updateAddress = new UpdateAddress();
             updateAddress.setGUI();
+            MenuFrame.dispose();
         }
         if(e.getActionCommand().equals("DELETE  ADDRESS")){
             DeleteAddress deleteAddress = new DeleteAddress();
             deleteAddress.setGUI();
+            MenuFrame.dispose();
         }
 
         if(e.getActionCommand().equals("Exit")){
