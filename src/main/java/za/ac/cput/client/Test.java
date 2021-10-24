@@ -8,7 +8,7 @@ public class Test {
 
     public static void get(){
         RestClient client = new RestClient();
-        Contact add = client.get("http://localhost:8080/contact/read/AN651s", Contact.class);
+        Contact add = client.get("http://localhost:8080/contact/read/AN157d", Contact.class);
         System.out.println(add.toString());
     }
 

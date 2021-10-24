@@ -14,7 +14,7 @@ public class ContactClient {
         return client.get("http://localhost:8080/contact/read/" + id, Contact.class);
     }
 
-    public Contact updateAddress(Contact contact) {
+    public Contact updateContact(Contact contact) {
         return client.post("http://localhost:8080/contact/update", contact, Contact.class);
     }
 

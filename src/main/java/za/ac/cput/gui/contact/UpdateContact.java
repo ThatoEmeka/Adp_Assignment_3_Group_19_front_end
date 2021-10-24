@@ -1,5 +1,8 @@
 package za.ac.cput.gui.contact;
 
+import za.ac.cput.client.Contact;
+import za.ac.cput.client.ContactClient;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -21,7 +24,7 @@ public class UpdateContact implements ActionListener {
     public UpdateContact(){
         headingFont = new Font("Times new roman", Font.BOLD, 30);
 
-        MenuFrame = new JFrame("Delete A CONTACT ");
+        MenuFrame = new JFrame("Update A CONTACT ");
         panelNorth = new JPanel();
         panelSouth = new JPanel();
         panelEast = new JPanel();
@@ -62,7 +65,7 @@ public class UpdateContact implements ActionListener {
         Filler5 = new JLabel("================================");
         Filler5.setForeground(Color.LIGHT_GRAY);
 
-        btnDelete = new JButton("Delete");
+        btnDelete = new JButton("Update");
         btnDelete.setBackground(btnColor);
     }
 
@@ -121,7 +124,15 @@ public class UpdateContact implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals("UPDATE")){
+        if(e.getActionCommand().equals("Update")){
+            Contact contact = new Contact();
+            contact.setId ("AN157d");
+            contact.setMobile(txtMobile.getText());
+            contact.setName(txtName.getText());
+            contact.setEmail(txtEmail.getText());
+
+            ContactClient client = new ContactClient();
+            client.updateContact(contact);
 
         }
     }
