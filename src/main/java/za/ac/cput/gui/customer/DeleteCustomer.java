@@ -49,11 +49,11 @@ public class DeleteCustomer extends JFrame implements ActionListener {
         panelCenter.setLayout(new GridLayout(1,2));
         panelSouth.setLayout(new GridLayout(1,2));
 
-        panelNorth.setBackground(Color.DARK_GRAY);
-        panelEast.setBackground(Color.DARK_GRAY);
-        panelSouth.setBackground(Color.DARK_GRAY);
-        panelWest.setBackground(Color.DARK_GRAY);
-        panelCenter.setBackground(Color.DARK_GRAY);
+        panelNorth.setBackground(bg_color);
+        panelEast.setBackground(bg_color);
+        panelSouth.setBackground(bg_color);
+        panelWest.setBackground(bg_color);
+        panelCenter.setBackground(bg_color);
 
         panelNorth.add(heading);
         heading.setFont(headingFont);
