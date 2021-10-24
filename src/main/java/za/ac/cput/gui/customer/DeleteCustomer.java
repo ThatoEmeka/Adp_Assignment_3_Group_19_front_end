@@ -1,5 +1,7 @@
 package za.ac.cput.gui.customer;
 
+import za.ac.cput.client.CustomerClient;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -28,7 +30,7 @@ public class DeleteCustomer extends JFrame implements ActionListener {
 
         heading=new JLabel("REMOVE CUSTOMER");
 
-        labelFirstName=new JLabel("Customer first name: ");
+        labelFirstName=new JLabel("Customer ID:");
         //labelLastName=new JLabel("Last names: ");
 
         labelPadding1=new JLabel();
@@ -90,11 +92,6 @@ public class DeleteCustomer extends JFrame implements ActionListener {
         jFrame.setVisible(true);
     }
 
-    public void delete()
-    {
-
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("Exit"))
@@ -103,7 +100,9 @@ public class DeleteCustomer extends JFrame implements ActionListener {
         }
         if(e.getActionCommand().equals("Delete"))
         {
-            delete();
+            CustomerClient client=new CustomerClient();
+            client.deleteCustomer(firstName.getText());
+            jFrame.dispose();
         }
 
     }
