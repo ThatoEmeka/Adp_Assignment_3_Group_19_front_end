@@ -18,6 +18,7 @@ public class CustomerMenuGUI extends JFrame implements ActionListener {
     private final JButton buttonUpdate;
     private final JButton buttonDelete;
     private final JButton buttonExit;
+    private final JButton buttonViewAll;
     private final JLabel Filler1;
     private final JLabel Filler2;
     private final JLabel Filler3;
@@ -64,6 +65,8 @@ public class CustomerMenuGUI extends JFrame implements ActionListener {
         buttonUpdate.setBackground(color);
         buttonDelete = new JButton("Delete customer");
         buttonDelete.setBackground(color);
+        buttonViewAll=new JButton("View All");
+        buttonViewAll.setBackground(color);
 
         buttonExit = new JButton("EXIT");
         buttonExit.setBackground(color);
@@ -74,7 +77,7 @@ public class CustomerMenuGUI extends JFrame implements ActionListener {
         panelEast.setLayout(new GridLayout(5, 1));
         panelSouth.setLayout(new GridLayout(1, 3));
         panelWest.setLayout(new GridLayout(5, 1));
-        panelCenter.setLayout(new GridLayout(7, 1));
+        panelCenter.setLayout(new GridLayout(8, 1));
 
         panelNorth.add(Filler5);
         panelNorth.add(lblHeading);
@@ -86,6 +89,7 @@ public class CustomerMenuGUI extends JFrame implements ActionListener {
         panelCenter.add(buttonView);
         panelCenter.add(buttonUpdate);
         panelCenter.add(buttonDelete);
+        panelCenter.add(buttonViewAll);
         panelCenter.add(Filler4);
 
         panelEast.add(Filler2);
@@ -105,6 +109,7 @@ public class CustomerMenuGUI extends JFrame implements ActionListener {
         buttonView.addActionListener(this);
         buttonUpdate.addActionListener(this);
         buttonDelete.addActionListener(this);
+        buttonViewAll.addActionListener(this);
         buttonExit.addActionListener(this);
 
         MenuFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -132,6 +137,10 @@ public class CustomerMenuGUI extends JFrame implements ActionListener {
         if(e.getActionCommand().equals("Delete customer")){
             DeleteCustomer deleteCustomer=new DeleteCustomer();
             deleteCustomer.setGUI();
+        }
+        if(e.getActionCommand().equals("View All")){
+            ViewAllCustomers viewAllCustomers=new ViewAllCustomers();
+            viewAllCustomers.viewAllGui();
         }
 
 

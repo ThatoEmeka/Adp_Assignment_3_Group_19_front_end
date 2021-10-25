@@ -1,5 +1,7 @@
 package za.ac.cput.gui.customer;
 
+import za.ac.cput.client.CustomerClient;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -8,7 +10,7 @@ import java.awt.event.ActionListener;
 public class ViewCustomer extends JFrame implements ActionListener {
     JFrame jFrame;
     JPanel panelNorth, panelCenter, panelSouth, panelEast, panelWest;
-    JLabel heading,labelFirstName, labelPadding1, labelPadding2;
+    JLabel heading,labelFirstName, labelPadding1, labelPadding2,secondLabel,secondList;
     JButton view,exit;
     JTextField firstName, lastName;
     Font headingFont, bodyFont;
@@ -31,7 +33,7 @@ public class ViewCustomer extends JFrame implements ActionListener {
 
         heading=new JLabel("VIEW CUSTOMERS");
 
-        labelFirstName=new JLabel("Customer first name: ");
+        labelFirstName=new JLabel("Customer ID: ");
         //labelLastName=new JLabel("Last names: ");
 
         labelPadding1=new JLabel();
@@ -86,19 +88,24 @@ public class ViewCustomer extends JFrame implements ActionListener {
         jFrame.setVisible(true);
     }
 
-
     public void SecondFrame()
     {
         frame=new JFrame("Customers found");
         panelNorth2=new JPanel();
         panelSouth2=new JPanel();
         exit2=new JButton("EXIT");
+        secondLabel=new JLabel();
+        secondList=new JLabel();
+        secondLabel.setFont(bodyFont);
+        secondList.setFont(bodyFont);
 
-        panelNorth2.setLayout(new FlowLayout());
+        panelNorth2.setLayout(new GridLayout(2,1));
         panelSouth2.setLayout(new GridLayout());
 
         panelNorth2.setBackground(bg_color);
         panelSouth2.setBackground(bg_color);
+        panelNorth2.add(secondLabel);
+        panelNorth2.add(secondList);
 
         panelSouth2.add(exit2);
         exit2.setBackground(color);
@@ -106,12 +113,19 @@ public class ViewCustomer extends JFrame implements ActionListener {
         frame.add(panelNorth2,BorderLayout.NORTH);
         frame.add(panelSouth2,BorderLayout.SOUTH);
 
+        secondLabel.setText("Customer: ");
+        secondLabel.setForeground(color);
+        secondList.setForeground(color);
+
+        CustomerClient client=new CustomerClient();
+        secondList.setText(String.valueOf(client.readCustomer(firstName.getText())));
+
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         exit2.addActionListener(this);
 
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setSize(370,200);
+        frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
